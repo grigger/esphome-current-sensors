@@ -139,12 +139,11 @@ async def to_code(config):
         power_sensor = await sensor.new_sensor(config[CONF_POWER_SENSOR])
         cg.add(var.set_power_sensor(power_sensor))
     
-    # Registra el sensor de potencia (watts) si se ha definido en el YAML
+    # Registra el sensor de voltaje si se ha definido en el YAML
     if CONF_VOLTAGE_SENSOR in config:
         voltage_sensor = await sensor.new_sensor(config[CONF_VOLTAGE_SENSOR])
         cg.add(var.set_voltage_sensor(voltage_sensor))
 
-
     if CONF_LINE_VOLTAGE_SENSOR in config:
-        voltage_sensor = await sensor.new_sensor(config[CONF_LINE_VOLTAGE_SENSOR])
+        line_voltage_sensor = await sensor.new_sensor(config[CONF_LINE_VOLTAGE_SENSOR])
         cg.add(var.set_line_voltage_sensor(line_voltage_sensor))
