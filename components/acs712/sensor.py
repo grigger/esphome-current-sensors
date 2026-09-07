@@ -143,3 +143,8 @@ async def to_code(config):
     if CONF_VOLTAGE_SENSOR in config:
         voltage_sensor = await sensor.new_sensor(config[CONF_VOLTAGE_SENSOR])
         cg.add(var.set_voltage_sensor(voltage_sensor))
+
+
+    if CONF_LINE_VOLTAGE_SENSOR in config:
+        voltage_sensor = await sensor.new_sensor(config[CONF_LINE_VOLTAGE_SENSOR])
+        cg.add(var.set_line_voltage_sensor(line_voltage_sensor))
