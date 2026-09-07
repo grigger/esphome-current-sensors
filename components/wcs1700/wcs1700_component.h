@@ -26,7 +26,8 @@ class WCS1700Sensor : public PollingComponent {
            freq_(50), // default 1000 for dc, 50 for AC
            current_sensor(nullptr),
            power_sensor(nullptr),
-           voltage_sensor(nullptr) {}
+           voltage_sensor(nullptr) {},
+           line_voltage_sensor(nullptr) {}
 
     void dump_config() override;
     void setup() override;
@@ -55,6 +56,7 @@ class WCS1700Sensor : public PollingComponent {
     void set_current_sensor(sensor::Sensor *sensor) { current_sensor = sensor; }
     void set_power_sensor(sensor::Sensor *sensor) { power_sensor = sensor; }
     void set_voltage_sensor(sensor::Sensor *sensor) { voltage_sensor = sensor; }
+    void set_line_voltage_sensor(sensor::Sensor *sensor) { line_voltage_sensor = sensor; }
 
    private:
     ACS712 acs_;
@@ -71,6 +73,7 @@ class WCS1700Sensor : public PollingComponent {
     sensor::Sensor *current_sensor;
     sensor::Sensor *power_sensor;
     sensor::Sensor *voltage_sensor;
+    sensor::Sensor *line_voltage_sensor;
 };
 
 }  // namespace wcs1700
