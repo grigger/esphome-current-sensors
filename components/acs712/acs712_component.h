@@ -26,7 +26,8 @@ class ACS712Sensor : public PollingComponent {
            freq_(50), // default 1000 for dc, 50 for AC
            current_sensor(nullptr),
            power_sensor(nullptr),
-           voltage_sensor(nullptr) {}
+           voltage_sensor(nullptr) {},
+           line_voltage_sensor(nullptr) {}
 
     void dump_config() override;
     void setup() override;
