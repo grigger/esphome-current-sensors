@@ -25,6 +25,7 @@ DEPENDENCIES = []
 CONF_CURRENT_SENSOR = "current_sensor"
 CONF_POWER_SENSOR = "power_sensor"
 CONF_VOLTAGE_SENSOR = "voltage_sensor"
+CONF_LINE_VOLTAGE_SENSOR = "line_voltage_sensor"
 
 # Constantes de configuración originales
 CONF_ADC_BITS = "adc_bits"
@@ -72,6 +73,12 @@ CONFIG_SCHEMA = cv.Schema({
             icon=ICON_FLASH,
     ),
     cv.Optional(CONF_VOLTAGE_SENSOR): sensor.sensor_schema(
+            unit_of_measurement=UNIT_VOLT,
+            accuracy_decimals=2,
+            device_class=DEVICE_CLASS_VOLTAGE,
+            icon="mdi:sine-wave"
+    ),
+    cv.Optional(CONF_LINE_VOLTAGE_SENSOR): sensor.sensor_schema(
             unit_of_measurement=UNIT_VOLT,
             accuracy_decimals=2,
             device_class=DEVICE_CLASS_VOLTAGE,
