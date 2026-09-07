@@ -65,10 +65,14 @@ void ACS712Sensor::update() {
 
   float sensor_output_v = analogReadMilliVolts(this->pin_) / 1000.0f;
   
-  current_sensor->publish_state(amps);
-  power_sensor->publish_state(amps * effective_line_voltage);
-  voltage_sensor->publish_state(sensor_output_v);
-  line_voltage_sensor->publish_state(effective_line_voltage);
+  if (current_sensor != nullptr)
+    current_sensor->publish_state(amps);
+  if (power_sensor != nullptr)
+    power_sensor->publish_state(amps * effective_line_voltage);
+  if (voltage_sensor != nullptr)
+    voltage_sensor->publish_state(sensor_output_v);
+  if (line_voltage_sensor != nullptr)
+    line_voltage_sensor->publish_state(effective_line_voltage);
 }
 
 
