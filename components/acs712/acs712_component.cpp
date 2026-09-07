@@ -68,6 +68,7 @@ void ACS712Sensor::update() {
   current_sensor->publish_state(amps);
   power_sensor->publish_state(amps * effective_line_voltage);
   voltage_sensor->publish_state(sensor_output_v);
+  line_voltage_sensor->publish_state(effective_line_voltage);
 }
 
 
