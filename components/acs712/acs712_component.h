@@ -55,6 +55,7 @@ class ACS712Sensor : public PollingComponent {
     void set_current_sensor(sensor::Sensor *sensor) { current_sensor = sensor; }
     void set_power_sensor(sensor::Sensor *sensor) { power_sensor = sensor; }
     void set_voltage_sensor(sensor::Sensor *sensor) { voltage_sensor = sensor; }
+    void set_line_voltage_sensor(sensor::Sensor *sensor) { line_voltage_sensor = sensor; }
 
    private:
     ACS712 acs_;
@@ -71,6 +72,7 @@ class ACS712Sensor : public PollingComponent {
     sensor::Sensor *current_sensor;
     sensor::Sensor *power_sensor;
     sensor::Sensor *voltage_sensor;
+    sensor::Sensor *line_voltage_sensor;
 };
 
 }  // namespace acs712
